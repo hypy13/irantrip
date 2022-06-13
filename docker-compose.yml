@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  travel_web:
+    build: .
+    image: travel_web
+    container_name: travel_web
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8003:8000"
+    env_file: .env.dev
+    depends_on:
+      - travel_postgres
+
+  travel_postgres:
+    container_name: travel_postgres
+    ports:
+      - "5447:5432"
+    image: postgres:13.6-alpine
+    volumes:
+      - travel_postgres_data:/var/lib/postgresql/data/
+    env_file: .env.dev
+
+
+
+volumes:
+  travel_postgres_data:
+

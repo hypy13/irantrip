@@ -1,0 +1,174 @@
+{% extends 'front/layout.html' %}
+{% load thumbnail %}
+{% block content %}
+    <div class="container single-content">
+        <div class="entry-header pt-80 pb-30 mb-20">
+            <div class="row">
+                <div class="col-md-6 mb-md-0 mb-sm-3">
+                    <figure class="mb-0 mt-lg-0 mt-3 border-radius-5">
+                        <img class=" border-radius-5" src="{% thumbnail blog.photo 1024x1024 crop %}"
+                             alt="{{ blog.title }}">
+                    </figure>
+                </div>
+                <div class="col-md-6 align-self-center">
+                    <div class="post-content">
+                        <div class="entry-meta meta-0 mb-15 font-small">
+                            {% for cat in blog.categories.all %}
+                                <a href="{% url 'category-detail' cat.slug %}">
+                                    <span class="post-cat position-relative text-info">{{ cat.name }}</span>
+                                </a>
+                            {% endfor %}
+                        </div>
+                        <h1 class="entry-title mb-30 font-weight-900">
+                            {{ blog.title }}
+                        </h1>
+                        <p class="excerpt mb-30">
+                            {{ blog.summary }}
+                        </p>
+                        <div class="entry-meta align-items-center meta-2 font-small color-muted">
+                            <p class="mb-5">
+                                <a class="author-avatar" href="#"><img class="img-circle"
+                                                                       src="assets/imgs/authors/author-3.jpg"
+                                                                       alt=""></a>
+                                By <a href="author.html"><span
+                                    class="author-name font-weight-bold">BestTravelTours.com</span></a>
+                            </p>
+                            <span class="mr-10">{{ blog.created_on }}</span>
+                            <span class="has-dot"> 8 mins read</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--end single header-->
+        <!--figure-->
+        <article class="entry-wraper mb-50">
+            <div class="entry-main-content dropcap wow fadeIn animated">
+                {{ blog.content | safe }}
+            </div>
+            {% if blog.tags %}
+                <div class="entry-bottom mt-50 mb-30 wow fadeIn animated">
+                    <div class="tags">
+                        <span>Tags: </span>
+                        {% for tag in blog.tags.all %}
+                            <a href="" rel="tag">{{ tag.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="single-social-share clearfix wow fadeIn animated">
+                <div class="entry-meta meta-1 font-small color-grey float-left mt-10">
+                    <span class="hit-count mr-15"><i class="elegant-icon icon_comment_alt mr-5"></i>{{ blog.comments.count}} comments</span>
+                    <span class="hit-count mr-15"><i class="elegant-icon icon_like mr-5"></i>{{ blog.comments.count|add:12 }} likes</span>
+                    <span class="hit-count"><i class="elegant-icon icon_star-half_alt mr-5"></i>Rate: 9/10</span>
+                </div>
+                <ul class="header-social-network d-inline-block list-inline float-md-right mt-md-0 mt-4">
+                    <li class="list-inline-item text-muted"><span>Share this: </span></li>
+                    <li class="list-inline-item"><a class="social-icon fb text-xs-center" target="_blank" href="#"><i
+                            class="elegant-icon social_facebook"></i></a></li>
+                    <li class="list-inline-item"><a class="social-icon tw text-xs-center" target="_blank" href="#"><i
+                            class="elegant-icon social_twitter "></i></a></li>
+                    <li class="list-inline-item"><a class="social-icon pt text-xs-center" target="_blank" href="#"><i
+                            class="elegant-icon social_pinterest "></i></a></li>
+                </ul>
+            </div>
+            <!--Comments-->
+            <div class="comments-area">
+                <div class="widget-header-2 position-relative mb-30">
+                    <h5 class="mt-5 mb-30">Comments</h5>
+                </div>
+                {% for comment in blog.comments %}
+                    <div class="comment-list wow fadeIn animated">
+
+                        <div class="single-comment justify-content-between d-flex">
+                            <div class="user justify-content-between d-flex">
+                                <div class="thumb">
+                                    <img style="width: 50px"
+                                         src="https://ui-avatars.com/api/?size=50&background=random&name={{ comment.name }}"
+                                         alt="{{ comment.name }}">
+                                </div>
+                                <div class="desc">
+                                    <p class="comment">
+                                        {{ comment.message }}
+                                    </p>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <h5>
+                                                <a href="#">{{ comment.name }}</a>
+                                            </h5>
+                                            <p class="date">{{ comment.created_at }}</p>
+                                        </div>
+                                        <div class="reply-btn">
+                                            <a href="#" class="btn-reply">Reply</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% for sub in comment.get_decendent %}
+                            <div class="single-comment depth-2 justify-content-between d-flex mt-50">
+                                <div class="user justify-content-between d-flex">
+                                    <div class="thumb">
+                                        <img style="width: 50px"
+                                             src="https://ui-avatars.com/api/?size=50&background=random&name={{ sub.name }}"
+                                             alt="{{ sub.name }}">
+                                    </div>
+                                    <div class="desc">
+                                        <p class="comment">
+                                            {{ sub.message }}
+                                        </p>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="d-flex align-items-center">
+                                                <h5>
+                                                    <a href="#">{{ sub.name }}</a>
+                                                </h5>
+                                                <p class="date">{{ sub.created_at }}</p>
+                                            </div>
+                                            <div class="reply-btn">
+                                                <a href="#" class="btn-reply">Reply</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+            </div>
+            <!--comment form-->
+            <div class="comment-form wow fadeIn animated">
+                <div class="widget-header-2 position-relative mb-30">
+                    <h5 class="mt-5 mb-30">Leave a Reply</h5>
+                </div>
+                <form method="post" class="form-contact comment_form" action="" id="commentForm">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <textarea class="form-control w-100" name="message" id="comment" cols="30" rows="9"
+                                          placeholder="Write Comment"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control" name="name" id="name" type="text" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control" name="phonenumber" id="email" type="text"
+                                       placeholder="Phone number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn button button-contactForm">Post Comment</button>
+                    </div>
+                </form>
+            </div>
+        </article>
+    </div>
+{% endblock %}

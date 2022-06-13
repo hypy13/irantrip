@@ -1,0 +1,80 @@
+{% extends 'front/layout.html' %}
+{% load static %}
+{% block content %}
+    <!-- Page Banner Section Start -->
+    <div class="page-banner-section section"
+         style="background-image: url({% static 'login-banner.jpg' %})">
+        <div class="container">
+            <div class="row">
+                <div class="page-banner-content col">
+                    <h1>ورد به پنل کاربری & ثبت نام در سایت</h1>
+                    <ul class="page-breadcrumb">
+                        <li><a href="{% url 'home' %}">صفحه اصلی</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><!-- Page Banner Section End -->
+
+    <!-- Page Section Start -->
+    <div class="page-section section section-padding">
+        <div class="container">
+            <div class="row mbn-40">
+
+                <div class="col-lg-4 col-12 mb-40">
+                    <div class="login-register-form-wrap text-right">
+                        <h3>ورود به حساب کاربری</h3>
+                        <form action="{% url 'login' %}" method="post" class="mb-30">
+                            {% csrf_token %}
+                            <div class="row ">
+                                <div class="col-12 mb-15">
+                                    {{ form.username }}
+                                </div>
+                                <div class="col-12 mb-15">
+                                    {{ form.password }}
+                                </div>
+                                <div class="col-12"><input type="submit" value="ورود"></div>
+                            </div>
+                        </form>
+                        <h6 dir="rtl" class="text-right">
+                            <a href="{% url 'password_reset' %}"> رمزتو یادت رفته؟</a> /
+                            <a href="{% url 'password_reset' %}">بازیابی پسورد</a>
+                        </h6>
+                        {#                        <h4>لاگین با شبکه های اجتماعی</h4>#}
+                        {#                        <div class="social-login">#}
+                        {#                            <a href="#"><i class="fa fa-facebook"></i></a>#}
+                        {#                            <a href="#"><i class="fa fa-twitter"></i></a>#}
+                        {#                            <a href="#"><i class="fa fa-google-plus"></i></a>#}
+                        {#                            <a href="#"><i class="fa fa-pinterest"></i></a>#}
+                        {#                            <a href="#"><i class="fa fa-linkedin"></i></a>#}
+                        {#                        </div>#}
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-12 mb-40 text-center">
+                    <span class="login-register-separator"></span>
+                </div>
+
+                <div class="col-lg-6 col-12 mb-40 ml-auto">
+                    <div class="login-register-form-wrap text-right">
+                        <h3>ثبت نام در سایت</h3>
+                        <form action="{% url 'register' %}" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6 col-12 mb-15">{{ signup_form.last_name }}</div>
+                                <div class="col-md-6 col-12 mb-15">{{ signup_form.first_name }}</div>
+                                <div class="col-md-6 col-12 mb-15">{{ signup_form.password }}</div>
+                                <div class="col-md-6 col-12 mb-15">{{ signup_form.password_confirm }}</div>
+                                <div class="col-md-6 col-12 mb-15">{{ signup_form.username }}</div>
+
+                                <div class="col-md-6 col-12"><input type="submit" value="ثبت نام"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- Page Section End -->
+
+{% endblock %}

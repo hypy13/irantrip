@@ -1,0 +1,91 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-01 00:23+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: apps.py:9
+msgid "Contact us"
+msgstr "ارتباط با ما"
+
+#: models.py:8
+msgid "unread"
+msgstr "خوانده نشده"
+
+#: models.py:9
+msgid "read"
+msgstr "خوانده شده"
+
+#: models.py:10
+msgid "answered"
+msgstr "پاسخ داده شده"
+
+#: models.py:12
+msgid "name"
+msgstr "نام"
+
+#: models.py:13
+msgid "email"
+msgstr "ایمیل"
+
+#: models.py:14
+msgid "message"
+msgstr "پیام"
+
+#: models.py:15
+msgid "phone number"
+msgstr "شماره همراه"
+
+#: models.py:17
+msgid "answer"
+msgstr "پاسخ"
+
+#: models.py:18
+msgid "this text will send by email to user if email is filled"
+msgstr "این پیام به ایمیل کاربر ارسال خواهد شد"
+
+#: models.py:22
+msgid "status"
+msgstr "وضعیت"
+
+#: models.py:25
+msgid "created_at"
+msgstr "تاریخ ایجاد"
+
+#: models.py:32
+msgid "contact-us"
+msgstr "ارتباط با ما"
+
+#: models.py:33
+msgid "contact-us messages"
+msgstr "پیام های ارتباط با ما"
+
+#: views/temp.py:14
+msgid "Full Name"
+msgstr "نام کامل"
+
+#: views/temp.py:15
+msgid "Phone Number"
+msgstr "شماره همراه"
+
+#: views/temp.py:17
+msgid "Message"
+msgstr "پیام"
+
+#: views/temp.py:27
+msgid "Thank you for getting in touch! We appreciate you contacting us"
+msgstr "از ارتباط شما بسیار سپاس گذاریم"

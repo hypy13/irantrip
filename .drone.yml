@@ -1,0 +1,75 @@
+kind: pipeline
+type: exec
+name: dockercompose
+
+platform:
+  os: linux
+  arch: amd64
+
+
+steps:
+  - name: "run docker compose"
+    commands:
+#    - docker-compose up -d --build
+    - DOCKER_BUILDKIT=1 COMPOSE_DOCKER_CLI_BUILD=1 docker-compose  up -d --build
+
+  - name: "copy nginx conf"
+    commands:
+    - cp nginx/travel.conf /docker/nginx/data/conf.d/travel.conf
+
+  - name: "restart nginx server"
+    commands: 
+    - docker restart nginx
+trigger:
+  branch:
+  - master
+  event:
+  - push
+
+---
+
+kind: pipeline
+name: notify
+type: docker
+
+depends_on:
+  # Must run after the first pipeline
+  - dockercompose
+
+trigger:
+  status:
+    # Only runs if the first pipeline was fully successful
+    - success
+
+clone:
+  disable: true
+
+steps:
+  # Notify Telegram that tests are passed
+  - name: telgram_notify
+    image: appleboy/drone-telegram
+    when:
+      status:
+        - success
+        - failure
+    settings:
+      # The secrets below can be entered from the Drone UI for this repo
+      token:
+        from_secret: telegram_token
+      to:
+        from_secret: telegram_chat_id
+      format: markdown
+      message: >
+        {{#success build.status}}
+        ✅ Build #{{build.number}} of `{{repo.name}}` succeeded.
+        📝 Commit by {{commit.author}} on `{{commit.branch}}`:
+        ```
+        {{commit.message}}
+        ```
+        {{else}}
+        ❌ Build #{{build.number}} of `{{repo.name}}` failed.
+        📝 Commit by {{commit.author}} on `{{commit.branch}}`:
+        ```
+        {{commit.message}}
+        ```
+        {{/success}}

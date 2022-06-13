@@ -1,0 +1,255 @@
+{% extends 'front/layout.html' %}
+{% load frontapp %}
+{% load thumbnail %}
+{% load static %}
+
+{% block content %}
+    <!-- Start Main content -->
+    <main class="bg-grey pb-30">
+        <div class="featured-slider-2">
+            <div class="featured-slider-2-items pb-30">
+                {% for photo in tour.photos.all %}
+                    <div class="slider-single">
+                        <div class="post-thumb position-relative">
+                            <div class="thumb-overlay position-relative"
+                                 style="background-image: url({{ photo.photo.url }})">
+                                <div class="post-content-overlay">
+                                    <div class="container">
+                                        <div class="entry-meta meta-0 font-small mb-20">
+                                            {% for category in tour.categories.all %}
+                                                {% if forloop.first %}
+                                                    <a href="{% url 'category-detail' category.slug %}"
+                                                       tabindex="0"><span
+                                                            class="post-cat text-info text-uppercase">{{ category.name }}</span></a>
+                                                {% else %}
+                                                    <a href="{% url 'category-detail' category.slug %}"
+                                                       tabindex="0"><span
+                                                            class="post-cat text-warning text-uppercase">{{ category.name }}</span></a>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                        <h1 class="post-title mb-20 font-weight-900 text-white">
+                                            <a class="text-white" href="single.html" tabindex="0">
+                                                {{ tour.title }}
+                                            </a>
+                                        </h1>
+                                        <div class="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
+                                            {#                                        <span class="post-on">{{ tour.created_at }}</span>#}
+                                            {#                                        <span class="hit-count has-dot">18k Views</span>#}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% if tour.photos.count > 1 %}
+                <div class="container position-relative">
+                    <div class="arrow-cover color-white"></div>
+                    <div class="featured-slider-2-nav-cover">
+                        <div class="featured-slider-2-nav">
+                            {% for photo in tour.photos.all %}
+                                <div class="slider-post-thumb mr-15 mt-20 position-relative">
+                                    <div class="d-flex hover-up-2 transition-normal">
+                                        <div class="post-thumb post-thumb-80 d-flex mr-15 border-radius-5">
+                                            <img class="border-radius-5"
+                                                 src="{% thumbnail photo.photo 150x150 %}"
+                                                 alt="{{ photo.title }}">
+                                        </div>
+                                        <div class="post-content media-body text-white">
+                                            <h5 class="post-title mb-15 text-limit-2-row">{{ photo.title }}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="container single-content">
+            <!--end single header-->
+            <!--figure-->
+            <article class="entry-wraper mb-50">
+                <div class="entry-main-content dropcap wow">
+                    {{ tour.content|safe }}
+                </div>
+                {#                <div class="entry-bottom mt-50 mb-30 wow">#}
+                {#                    <div class="tags">#}
+                {#                        <span>Tags: </span>#}
+                {#                        <a href="category.html" rel="tag">deer</a>#}
+                {#                        <a href="category.html" rel="tag">nature</a>#}
+                {#                        <a href="category.html" rel="tag">conserve</a>#}
+                {#                    </div>#}
+                {#                </div>#}
+                <div class="single-social-share clearfix wow">
+                    <div class="entry-meta meta-1 font-small color-grey float-left mt-10">
+                        {#                        <span class="hit-count mr-15"><i class="elegant-icon icon_comment_alt mr-5"></i>182 comments</span>#}
+                        {#                        <span class="hit-count mr-15"><i class="elegant-icon icon_like mr-5"></i>268 likes</span>#}
+                        <span class="hit-count">
+                            {{ tour.get_generated_star }}
+                            Rate: {{ tour.rate }}/5
+                        </span>
+                    </div>
+                    <ul class="header-social-network d-inline-block list-inline float-md-right mt-md-0 mt-4">
+                        <li class="list-inline-item text-muted"><span>Share this: </span></li>
+                        <li class="list-inline-item"><a class="social-icon pt text-xs-center" target="_blank"
+                                                        href="#"><i class="elegant-icon social_instagram "></i></a></li>
+                    </ul>
+                </div>
+                <!--author box-->
+                <div class="author-bio p-30 mt-50 border-radius-10 bg-white wow">
+                    <div class="author-info row">
+                        <div class="col-3">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <i class="text-black-50 font-large elegant-icon icon_clock"></i>
+                                </div>
+                                <div class="col pl-0">
+                                    <div class="font-weight-bold text-black-50 mb-1">Duration</div>
+                                    <div class="font-small">{{ tour.get_duration }} Days</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <i class="text-black-50 font-large elegant-icon icon_profile"></i>
+                                </div>
+                                <div class="col pl-0">
+                                    <div class="font-weight-bold text-black-50 mb-1 text-left">Group Size</div>
+                                    <div class="font-small">{{ tour.group_max }} People</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <i class="text-black-50 font-large elegant-icon icon_clock"></i>
+                                </div>
+                                <div class="col pl-0">
+                                    <div class="font-weight-bold text-black-50 mb-1">Languages</div>
+                                    <div class="font-small">English</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <i class="text-black-50 font-large elegant-icon icon_clock"></i>
+                                </div>
+                                <div class="col pl-0">
+                                    <div class="font-weight-bold text-black-50 mb-1">Age Range</div>
+                                    <div class="font-small">{{ tour.age_range }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--related posts-->
+                <div class="author-bio p-30 mt-20 border-radius-10 bg-white wow">
+                    <div class="author-info row">
+                        {% for feature in tour.features %}
+                            <div class="col-auto">
+                                <div class="col-auto">{{ feature.key }}</div>
+                                {% for v in feature.value|split:"," %}
+                                    <div class="col-auto text-black-50 font-small">{{ v }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="author-bio p-15 mt-20 border-radius-10 wow">
+                    <div id="accordion" class="row">
+                        {% for day in tour.days.all %}
+                            <div class="card w-100 mb-10">
+                                <div class="card-header bg-primary text-white" id="heading-{{ forloop.counter }}"
+                                     data-toggle="collapse" data-target="#collapse-{{ forloop.counter }}"
+                                     aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+                                     aria-controls="collapse-{{ forloop.counter }}">
+                                    <h5 class="mb-0">
+                                        day {{ forloop.counter }} - {{ day.title }}
+                                    </h5>
+                                </div>
+                                <div id="collapse-{{ forloop.counter }}"
+                                     class="collapse {% if forloop.first %}show{% endif %}"
+                                     aria-labelledby="heading-{{ forloop.counter }}" data-parent="#accordion">
+                                    <div class="card-body">
+                                        {{ day.text|safe }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!--Comments-->
+                <div class="comments-area">
+                    <div class="widget-header-2 position-relative mb-30">
+                        <h5 class="mt-5 mb-30">Comments</h5>
+                    </div>
+                    {% if comments %}
+                        {% for comment in comments %}
+                            <div class="comment-list wow">
+                                <div class="single-comment justify-content-between d-flex">
+                                    <div class="user justify-content-between d-flex">
+                                        <div class="thumb rounded-circle">
+                                            {{ comment.name|make_list|first }}
+                                        </div>
+                                        <div class="desc">
+                                            <p class="comment">
+                                                {{ comment.message }}
+                                            </p>
+                                            <div class="d-flex justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <h5>
+                                                        <a href="#">{{ comment.name }}</a>
+                                                    </h5>
+                                                    <p class="date">{{ comment.created_at|timesince }}</p>
+                                                </div>
+                                                {#                                                <div class="reply-btn">#}
+                                                {#                                                    <a href="#" class="btn-reply">Reply</a>#}
+                                                {#                                                </div>#}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="wow alert alert-primary ">
+                            write first comment ...
+                        </div>
+                    {% endif %}
+                </div>
+                <!--comment form-->
+                <div class="comment-form wow mt-0">
+                    <div class="widget-header-2 position-relative mb-30">
+                        <h5 class="mt-5 mb-30">Leave a Reply</h5>
+                    </div>
+                    <form class="form-contact comment_form" method="post" id="commentForm">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" name="name" id="name" type="text" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="form-control w-100" name="message" id="comment" cols="30" rows="9"
+                                              placeholder="Write Comment"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn button button-contactForm">Post Comment</button>
+                        </div>
+                    </form>
+                </div>
+            </article>
+        </div>
+        <!--container-->
+    </main>
+
+{% endblock %}

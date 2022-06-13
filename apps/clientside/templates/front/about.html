@@ -1,0 +1,98 @@
+{% extends 'front/layout.html' %}
+{% load static %}
+{% block content %}
+    <div class="container single-content">
+        <div class="entry-header entry-header-style-1 mb-50 pt-50 text-center">
+            <h1 class="entry-title mb-20 font-weight-900 ">
+                About me
+            </h1>
+            <p class="text-muted"><span class="typewrite d-inline" data-period="2000"
+                                        data-type='[ " Travel Blogger. ", "Content Writter. ", "Food Guides " ]'></span>
+            </p>
+        </div>
+        <!--end single header-->
+        <figure class="image mb-30 m-auto text-center border-radius-10">
+            <img class="border-radius-10" src="{% static "assets/imgs/news/news-17.jpg" %}" alt="post-title"/>
+        </figure>
+        <!--figure-->
+        <article class="entry-wraper">
+            <div class="entry-header entry-header-style-1 small mb-50 pt-50">
+                <h1 class="entry-title mb-50 font-weight-900 text-center">
+                    Who We Are
+                </h1>
+            </div>
+            <p class="font-large">
+                Iran Best Tour is an Online Travel Agency that provides travel guides and tips about the most visited
+                attractions, the most enjoyable things to do and activities in Iran. Iran Best Tour OTA provides visa
+                services; online bus, train and airplane tickets; information about hotels, restaurants and other travel
+                inspirations.
+                We believe the nature and architecture have come together to make Iran the charming place it is; home to
+                exciting historical sights and natural sceneries, divergent ethnic groups and colorful cultures.
+            </p>
+            <div class="entry-header entry-header-style-1 small mb-50 pt-50">
+                <h1 class="entry-title mb-50 font-weight-900 text-center">
+                    Why Iran Best Tours
+                </h1>
+            </div>
+            <p class="font-large">
+                Iran Best Tours works to ensure that visitors experience high-quality services by booking hotels, driver
+                guides, and tours with private tour guides. IranRoute provides services such as cheap travel and tour
+                packages, things to do in Iran, tour booking services, free day tours, food tours, adventure tours,
+                tours of nomadic tribes, as well as cultural and spiritual tours. As an Online Travel Agency, our
+                mission is to streamline your trip planning by helping you indulge in Iran’s culture and atmosphere.
+            </p>
+            <hr class="wp-block-separator is-style-wide">
+            <p><span class="mr-5">
+                        <ion-icon name="location-outline" role="img" class="md hydrated"
+                                  aria-label="location outline"></ion-icon>
+                    </span><strong>Address</strong>: Lorem 142 Str., 2352, Ipsum, State, USA
+            </p>
+            <p><span class="mr-5">
+                        <ion-icon name="home-outline" role="img" class="md hydrated"
+                                  aria-label="home outline"></ion-icon>
+                    </span><strong>Our website</strong>: <a href="https://iranbesttour.com">https://iranbesttour.com</a></p>
+            <p><span class="mr-5">
+                        <ion-icon name="planet-outline" role="img" class="md hydrated"
+                                  aria-label="planet outline"></ion-icon>
+                    </span><strong>Support center</strong>: <a href="/about/#contactus">https://iranbesttour.com/#contactus</a>
+            </p>
+            <h3 class="mt-30">Advertise</h3>
+            <hr class="wp-block-separator is-style-wide">
+            <p>Please contact us directly at <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                                data-cfemail="0c6d687f4c7960787e6d62697b7f226f636122">[email&#160;protected]</a>
+                For large or unique campaigns please email <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                                              data-cfemail="4a392b262f0a3f263e382b242f3d3964292527">[email&#160;protected]</a>
+                for requests-for-proposal and additional pricing information. </p>
+            <h1 class="mt-30" id="contactus">Get in touch</h1>
+            <hr class="wp-block-separator is-style-wide">
+            <form class="form-contact comment_form" action="#" id="commentForm">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input class="form-control" name="name" id="name" type="text" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input class="form-control" name="email" id="email" type="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input class="form-control" name="website" id="website" type="text" placeholder="Phone">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
+                                      placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="button button-contactForm">Send message</button>
+                </div>
+            </form>
+        </article>
+    </div>
+{% endblock %}

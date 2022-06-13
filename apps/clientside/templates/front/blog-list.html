@@ -1,0 +1,72 @@
+{% extends 'front/layout.html' %}
+{% load thumbnail %}
+{% load static %}
+{% block content %}
+    <div class="archive-header pt-50 text-center pb-50">
+        <div class="container">
+            <h1 class="h2 font-weight-900">Posts</h1>
+            <div class="breadcrumb">
+                <a href="{% url 'home' %}" rel="nofollow">Home</a>
+                <span></span> Blog
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <!--Loop Masonry-->
+        <div class="grid row mb-30">
+            <div class="grid-sizer"></div>
+            {% for blog in blogs %}
+                <article class="grid-item col pb-50 wow fadeIn animated">
+                    <div class="post-card-1 border-radius-10 hover-up">
+                        <div class="post-thumb thumb-overlay img-hover-slide position-relative"
+                             style="background-image: url({% thumbnail blog.photo 540x540 crop %})">
+                            <a class="img-link" href="{% url 'blog-detail' blog.slug %}"></a>
+                            <span class="top-right-icon bg-success"><i class="elegant-icon icon_camera_alt"></i></span>
+                            <ul class="social-share">
+                                <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
+                                <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i
+                                        class="elegant-icon social_facebook"></i></a></li>
+                                <li><a class="tw" href="#" target="_blank" title="Tweet now"><i
+                                        class="elegant-icon social_twitter"></i></a></li>
+                                <li><a class="pt" href="#" target="_blank" title="Pin it"><i
+                                        class="elegant-icon social_pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="post-content p-30">
+                            <div class="entry-meta meta-0 font-small mb-10">
+                                {% for cat in blog.categories.all %}
+                                    <a href="{% url 'category-detail' cat.slug %}"><span
+                                            class="post-cat text-info">{{ cat.name }}</span></a>
+                                {% endfor %}
+                            </div>
+                            <div class="d-flex post-card-content">
+                                <h5 class="post-title mb-20 font-weight-900">
+                                    <a href="{% url 'blog-detail' blog.slug %}">{{ blog.title }}</a>
+                                </h5>
+                                <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
+                                    <span class="post-on">{{ blog.created_on }}</span>
+                                    <span class="time-reading has-dot">12 mins read</span>
+                                    <span class="post-by has-dot">23k views</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="pagination-area mb-30 wow fadeInUp animated">
+                    {% include 'pagination.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'assets/js/vendor/imagesloaded.pkgd.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/vendor/masonry.pkgd.min.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,144 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-13 00:02+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: admin.py:26 admin.py:65
+msgid "Personal info"
+msgstr "اطلاعات شخصی"
+
+#: admin.py:27
+msgid "Permissions"
+msgstr "دسترسی ها"
+
+#: admin.py:30 admin.py:66
+msgid "Important dates"
+msgstr "تاریخ های مهم"
+
+#: admin.py:33 admin.py:70
+msgid "Last Login"
+msgstr ""
+
+#: admin.py:67
+msgid "Avatar"
+msgstr "آواتار"
+
+#: admin.py:80
+msgid "Date Joined"
+msgstr "تاریخ عضویت"
+
+#: apps.py:8
+msgid "Users"
+msgstr "کاربران"
+
+#: models.py:52
+msgid "Rahneshan Club"
+msgstr "کاربر رهنشان"
+
+#: models.py:53
+msgid "LMS"
+msgstr ""
+
+#: models.py:55
+msgid "first name"
+msgstr "نام"
+
+#: models.py:56
+msgid "last name"
+msgstr "نام خانوادگی"
+
+#: models.py:58
+msgid "province"
+msgstr "استان"
+
+#: models.py:58
+msgid "please select province."
+msgstr "لطفا استان را انتخاب نمایید"
+
+#: models.py:61
+msgid "city"
+msgstr "شهر"
+
+#: models.py:63
+msgid "phone number"
+msgstr "شماره همراه"
+
+#: models.py:66
+msgid "is staff"
+msgstr "ادمین"
+
+#: models.py:67
+msgid "is active"
+msgstr "فعال"
+
+#: models.py:68
+msgid "date joined"
+msgstr "تاریخ عضویت"
+
+#: models.py:69
+msgid "avatar"
+msgstr "آواتار"
+
+#: models.py:83
+msgid "Student"
+msgstr "دانش آموز"
+
+#: models.py:84
+msgid "Students"
+msgstr "دانش آموزان"
+
+#: models.py:100
+msgid "Rahneshan User"
+msgstr "کاربر رهنشان"
+
+#: models.py:101
+msgid "Rahneshan Users"
+msgstr "کاربران رهنشان"
+
+#: models.py:108
+msgid "Admin"
+msgstr "ادمین"
+
+#: models.py:109
+msgid "Admins"
+msgstr "ادمین ها"
+
+#: serializers/auth.py:24
+msgid "Verification code is invalid!"
+msgstr "کد احراز هویت صحیح نمی باشد"
+
+#: serializers/auth.py:42
+msgid "Token"
+msgstr "توکن"
+
+#: serializers/auth.py:59
+msgid "Unable to log in with provided credentials."
+msgstr "نام کاربری یا رمز ورود صحیح نمی باشد"
+
+#: serializers/auth.py:62
+msgid "Must include \"username\" and \"password\"."
+msgstr "فیلد نام کاربری و پسورد اجباری است"
+
+#: serializers/auth.py:80
+msgid "failed to send verification code please try again!"
+msgstr "کد اعتبارسنجی ارسال نشد. لطفا مجددا سعی کنید"
+
+#: serializers/auth.py:95
+msgid "Your verification code in rahneshan academy: "
+msgstr "کد اعتبارسنجی شما در آکادمی رهنشان: "
+

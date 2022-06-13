@@ -1,0 +1,83 @@
+{% extends 'admin/base_site.html' %}
+{% load static admin_list %}
+
+{% block layout-buttons %}
+    <div class="float-left text-black-50">You can sort your brand list by drag and drop.</div>
+    {% change_list_object_tools %}
+{% endblock %}
+
+{% block content %}
+    <div class="col-12 px-3">
+        <div class="row">
+            <div class="col-12 pt-2">
+                <!-- Accordion -->
+                <div class="card-group-control card-group-control-left" id="accordion-target">
+                    {% for item in items %}
+                        <div class="card mb-1 accordion-list" data-sort-id="{{ item.id }}">
+                            <div class="card-header header-elements-inline">
+                                <h6 class="card-title">
+                                    <a class="text-default" data-toggle="collapse"
+                                       data-parent="#accordion-target"
+                                       href="#accordion-control-group{{ forloop.counter }}">{{ item.question }}</a>
+                                    {% if item.status %}
+                                        <img src="{% static '/admin/img/icon-yes.svg' %}" alt="">
+                                    {% else %}
+                                        <img src="{% static '/admin/img/icon-no.svg' %}" alt="">
+                                    {% endif %}
+                                </h6>
+                                <a href="{% url change_link item.id %}"
+                                   class="badge bg-warning-400 legitRipple mr-3 ml-3"> <i class="icon-pencil"></i></a>
+                            </div>
+                            {% if item.status %}
+
+                            {% endif %}
+                            <div></div>
+                            <div id="accordion-control-group{{ forloop.counter }}" class="card-collapse collapse">
+                                <div class="card-body">
+                                    {{ item.answer | safe }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- /accordion -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'admin/panel/global_assets/js/plugins/ui/dragula.min.js' %}"></script>
+    <script !src="">
+        $(document).ready(function () {
+            // Accordion
+            dragula([document.getElementById('accordion-target')], {
+                mirrorContainer: document.getElementById('accordion-target'),
+            }).on('out', function (el) {
+                let priority = {}
+                $(".accordion-list").each(function (i, v) {
+                    let id = $(v).attr("data-sort-id")
+                    priority[id] = i
+                })
+                console.log(priority)
+                $.ajax({
+                    url: '{% url 'admin:faq_sort' %}',
+                    data: priority,
+                    type: "POST",
+                    success: function (data) {
+                        $.jGrowl('Changed successfully', {
+                            header: 'New message!',
+                            theme: 'bg-success',
+                            sticky: false,
+                        });
+                    },
+                    error: function (data) {
+                        window.location.reload()
+                    }
+                })
+            });
+        })
+    </script>
+
+{% endblock %}

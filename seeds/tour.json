@@ -1,0 +1,174 @@
+[
+  {
+    "model": "tour.tourdays",
+    "pk": 1,
+    "fields": {
+      "title": "Arrive Rome",
+      "text": "<p>Rome Welcome to Rome! Once known as the &#39;capital of the world&#39; this richly historic, passionate and elegant city will steal our hearts as soon as we arrive. We&#39;ll meet and greet our Contiki crew at 4pm, before heading on an orientation tour of the city. Yep, that means the Trevi Fountain, the Pantheon, the Piazza Navona, the Colosseum &amp; the Roman Forum. With our eyes wide and camera roll full, we&#39;ll head to a local restaurant for an included Italian feast. La perfezione!</p>",
+      "tour": 1
+    }
+  },
+  {
+    "model": "tour.tourdays",
+    "pk": 2,
+    "fields": {
+      "title": "Rome to Florence via Siena",
+      "text": "<p>Rome Rise and shine, we&#39;re headed to another historical heavyweight today... Siena But not before stopping off at Sienna for lunch. This place has medieval masterpieces and the historic city centre has been declared by UNESCO a World Heritage Site. We&#39;ll soak up all of that historic beauty and grab a bite before heading onto Florence... Florence Florence is one of the foodie capitals of Italy, so we won&#39;t waste any time trying the local delicacies with an included feast. Then we&#39;ll turn in for the night, dreaming of the Florentine adventures that await us tomorrow. Stay B&amp;B Centro (or similar)</p>",
+      "tour": 1
+    }
+  },
+  {
+    "model": "tour.tourdays",
+    "pk": 3,
+    "fields": {
+      "title": "DAY 3 - Florence",
+      "text": "<p>Florence Florence is often referred to as a &#39;walking museum&#39;, and today we&#39;ll find out why. With a locally guided walking tour, we&#39;ll discover Renaissance Florence on foot, swooning at Giotto&#39;s Bell Tower, Basilica Santa Croce, and Piazza della Signoria. We&#39;ll also see the Duomo, one of the world&#39;s most remarkable architectural feats. Later, we&rsquo;ll get together for a Tuscan evening of live local music and Chianti wine from the nearby vineyards. Our hosts have cooked up a feast of antipasto and Italian specialties, which we&rsquo;ll enjoy al fresco, in front of the lush Tuscan hills. Save some room for &lsquo;dolce&rsquo; i.e a mystery homemade dessert!</p>",
+      "tour": 1
+    }
+  },
+  {
+    "model": "tour.tourdays",
+    "pk": 4,
+    "fields": {
+      "title": "Tehran",
+      "text": "<p><img alt=\"Tehran\" src=\"https://www.tappersia.com/wp-content/uploads/2021/01/8-Days-Culture-Tour-Ancient-Civilizations-tehran.jpg\" /></p>\r\n\r\n<p>With over 15 million residents, Tehran is Iran&rsquo;s melting pot, the center of its national identity. Check out local shopping experiences in the maze-like <strong>Grand Bazaar of Tehran</strong>, before heading off to the World Heritage-listed <strong>Golestan Palace</strong>, in Central Tehran. The 18th c. Qajar-era complex is a masterpiece of hand-painted tiles, set within a lush garden. After a quick stroll through <strong>Shahr Park</strong>, arrive at the <strong>National Museum of Iran</strong>, which holds artifacts from ancient and medieval Iranian antiquities.</p>",
+      "tour": 2
+    }
+  },
+  {
+    "model": "tour.tourdays",
+    "pk": 5,
+    "fields": {
+      "title": "Tehran",
+      "text": "<p><img alt=\"Tehran\" src=\"https://www.tappersia.com/wp-content/uploads/2021/01/10-Days-Wildlife-Tour-Nature-Hiking-Tehran.jpg\" /></p>\r\n\r\n<p>Start the day with the celebrated <strong>Sa&rsquo;dabad Palace Complex</strong> in Northern Tehran, a 300-hectare complex built by the Qajar and Pahlavi monarchs, next to the house of the current president. After this, stroll through <strong>Tajrish Bazaar</strong> for an organic and lively shopping experience. Depending on your departure, you could also either visit <strong>Milad Tower</strong>, Tehran&rsquo;s tallest highrise, or the iconic <strong>Azadi Tower</strong>, an amalgam of classic and modern Iranian art. Fly overnight to Shiraz for a trip back in time the next day.</p>",
+      "tour": 2
+    }
+  },
+  {
+    "model": "tour.tourdays",
+    "pk": 6,
+    "fields": {
+      "title": "Shiraz",
+      "text": "<p><img alt=\"Shiraz\" src=\"https://www.tappersia.com/wp-content/uploads/2021/01/7-Days-Classic-Tour-–-History-Culture-shiraz2.jpg\" /></p>\r\n\r\n<p>Arrive before 8 am for the best views of sunlight hitting the glass-mosaic windows of the <strong>Nasir ol-Molk Mosque</strong>, or the &ldquo;Pink Mosque&rdquo;. After taking photos, explore the 11th c. <strong>Bazaar of Shiraz</strong>. Then it&rsquo;s on to the <strong>Vakil Complex</strong>, a popular desert stop for Asian and European merchants on ancient trade routes. The complex features the <strong>Vakil Mosque</strong>, <strong>Vakil Bathhouse</strong>, and the historic caravansary. Dive into the <strong>Citadel of Karim Khan</strong>. Finish the night with the 14th c <strong>Tomb of Hafez</strong> the poet.</p>",
+      "tour": 2
+    }
+  },
+  {
+    "model": "tour.tour",
+    "pk": 1,
+    "fields": {
+      "title": "Fire and Ice",
+      "content": "<p>Starting in the soulful city of Reykjavik, this trip will have you widening your eyes at the best of Iceland&#39;s unique natural beauty. Along the way you&rsquo;ll witness erupting geysers &amp; cascading waterfalls, marvel at volcanoes &amp; glaciers and soak in the Blue Lagoon, a geothermal mineral wonder surrounded by steam and stars. By the time it&rsquo;s over, you&rsquo;ll be floating home with a full camera reel and a lovestruck look plastered all over your face.</p>",
+      "rate": 5,
+      "group_max": 10,
+      "slug": "Fire-and-Ice",
+      "start_date": "2022-05-29T19:35:23",
+      "end_date": "2022-05-29T22:35:25",
+      "price": "3000.00",
+      "geo_points": "",
+      "services": null,
+      "age_range": "10-80",
+      "features": [
+        {
+          "key": "Transportation",
+          "value": "Airplane / Sedan"
+        }
+      ],
+      "cancellation_rule": "",
+      "created_at": "2022-05-29T22:55:22.436",
+      "updated_at": "2022-05-29T22:55:22.464",
+      "priority": null,
+      "status": true,
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "tour.tour",
+    "pk": 2,
+    "fields": {
+      "title": "7 Days Classic Tour – History & Culture",
+      "content": "<h3>Overview</h3>\r\n\r\n<div style=\"background:#eeeeee; border:1px solid #cccccc; padding:5px 10px\">This Tour Package is <strong>private</strong>. We know you enjoy your privacy. That&rsquo;s why all our tours are <strong>private</strong>, <strong>flexible</strong>, and <strong>planned</strong> based on your <strong>schedule</strong>. All tour packages can be <strong>100% customized</strong> at <strong>no additional</strong> <strong>cost</strong>. Just let us know what you would like to add.</div>\r\n\r\n<p>A week-long, short &amp; sweet summary of Iran&rsquo;s cultural and historical heritage. Dive into cosmopolitan Tehran, before heading off to the city of poetry, Shiraz. Wonder through the former capital of Isfahan and finish with the prehistoric city of Kashan.</p>",
+      "rate": 5,
+      "group_max": 10,
+      "slug": "7-Days-Classic-Tour",
+      "start_date": "2022-05-29T22:41:05",
+      "end_date": "2022-07-29T22:41:06",
+      "price": "7800.00",
+      "geo_points": "",
+      "services": null,
+      "age_range": "8-20",
+      "features": [
+        {
+          "key": "Included",
+          "value": "- Visa Authorization Code - Travel Insurance - Airport Pick-up, Drop-off - All Accommodations - One Domestic Flight - Private Land Transport - English Speaking Guide - Entrance Fees for Mentioned Monuments - Breakfast - 24/7 Support"
+        },
+        {
+          "key": "Excluded",
+          "value": "- Visa Fee - International Flights - Lunch, Dinner & Snacks - Guide & Driver Tips - Additional Expenses (i.e. Laundry) - Personal Expenses - Additional Costs Due to Unforeseen Events"
+        },
+        {
+          "key": "Accommodation Grade",
+          "value": "Hotel Traditional Hotel"
+        },
+        {
+          "key": "Meals",
+          "value": "Breakfast only"
+        },
+        {
+          "key": "Transportation",
+          "value": "Airplane - Sedan"
+        },
+        {
+          "key": "Travel Style",
+          "value": "Art - History"
+        }
+      ],
+      "cancellation_rule": "",
+      "created_at": "2022-05-29T22:55:22.436",
+      "updated_at": "2022-05-29T22:55:22.464",
+      "priority": null,
+      "status": true,
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "tour.tourphotos",
+    "pk": 1,
+    "fields": {
+      "tour": 1,
+      "title": "تهران",
+      "photo": "tours/IMG_20220316_201816.jpg"
+    }
+  },
+  {
+    "model": "tour.tourphotos",
+    "pk": 2,
+    "fields": {
+      "tour": 1,
+      "title": "مشهد",
+      "photo": "tours/IMG_20220316_192204.jpg"
+    }
+  },
+  {
+    "model": "tour.tourphotos",
+    "pk": 3,
+    "fields": {
+      "tour": 2,
+      "title": "شیراز",
+      "photo": "tours/20220529-HyaliteCreek_ROW4414458098_UHD.jpg"
+    }
+  },
+  {
+    "model": "tour.tourphotos",
+    "pk": 4,
+    "fields": {
+      "tour": 2,
+      "title": "تهران",
+      "photo": "tours/20220522-ZebraEgret_ROW1402853310_UHD.jpg"
+    }
+  }
+]

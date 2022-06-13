@@ -1,0 +1,20 @@
+{% extends 'front/layout.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Page Section Start -->
+    <div class="page-section section section-padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-8 col-12 mx-auto">
+                    <div class="error-e404 text-center">
+                        <h2 dir="rtl" class="text-shadow-dark">با موفقیت از حساب کاربری خود خارج شدید.</h2>
+                        <a href="{% url 'home' %}" class="text-primary">برگشت به صفحه اصلی سایت</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- Page Section End -->
+{% endblock %}
