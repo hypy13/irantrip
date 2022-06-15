@@ -2,7 +2,7 @@ from .base import *
 # import sentry_sdk
 # from sentry_sdk.integrations.django import DjangoIntegration
 
-DEBUG = True
+DEBUG = False
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
     'https://ivi3.ir',
