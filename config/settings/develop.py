@@ -1,7 +1,7 @@
 from .base import *
 
 CORS_ALLOW_ALL_ORIGINS = True
-DEBUG = False
+DEBUG = True
 
 CACHES = {
     'default': {
